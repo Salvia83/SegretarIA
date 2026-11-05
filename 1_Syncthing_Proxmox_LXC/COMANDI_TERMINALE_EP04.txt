@@ -1,0 +1,26 @@
+# ==============================================================================
+# SegretarIA - Episodio 4: Comandi Terminale Container LXC (Copia & Incolla)
+# ==============================================================================
+# Esegui questi comandi uno alla volta (o tutti insieme) nella Console del tuo
+# Container LXC (Debian 12 / Ubuntu) su Proxmox VE dopo il login come "root".
+# ==============================================================================
+
+# 1. Aggiorna i pacchetti e installa Syncthing + curl
+apt update && apt install -y syncthing curl
+
+# 2. Crea le 2 cartelle ufficiali di SegretarIA (Ingresso e Archivio)
+mkdir -p /root/SegretarIA/1_Input /root/SegretarIA/2_Archivio
+
+# 3. Attiva Syncthing all'avvio automatico e fallo partire subito
+systemctl enable --now syncthing@root.service
+
+# (Attendi 3-4 secondi che Syncthing generi il file di configurazione, poi:)
+
+# 4. Sblocca l'interfaccia Web per renderla accessibile dagli altri PC di casa
+sed -i 's/127.0.0.1:8384/0.0.0.0:8384/g' /root/.local/state/syncthing/config.xml /root/.config/syncthing/config.xml
+
+# 5. Riavvia Syncthing per applicare la modifica
+systemctl restart syncthing@root.service
+
+# 6. Mostra l'indirizzo IP del Container da aprire nel browser (http://IP:8384)
+hostname -I
