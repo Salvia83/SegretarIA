@@ -31,6 +31,11 @@ Questo pacchetto contiene tutti gli script mostrati nella serie YouTube **Segret
 - **`Avvia_USB_Windows.bat`**: Doppio clic per testare subito lo scarico con finestra visibile a schermo.
 - **`Installa_Avvio_Automatico_Nascosto.bat`**: Doppio clic (una sola volta) per registrare l'avvio automatico **100% invisibile** a ogni accensione di Windows.
 
+### `6_Trascrizione_Whisper_e_Voci/` *(Episodio 6: Trascrizione Offline, VAD e Riconoscimento Voci)*
+- **`segretaria_transcribe_diarize.py`**: Il motore unificato che usa Faster-Whisper (`large-v3`), filtro silenzi Silero VAD, e SpeechBrain ECAPA-TDNN per riconoscere chi parla confrontando con i campioni audio nella cartella `voci_note/` (es. vocali WhatsApp/Telegram). Funziona su Proxmox Linux, macOS e Windows (con supporto automatico GPU NVIDIA CUDA e CPU multithread).
+- **`Avvia_Trascrizione_Mac.command`**: Launcher 1-Click per macOS (crea l'ambiente virtuale isolato, trascrive e apre il risultato in TextEdit).
+- **`Avvia_Trascrizione_Windows.bat`** + **`windows_transcribe_runner.ps1`**: Launcher 1-Click per Windows 10/11 (scarica Python 3.11 in automatico se assente, attiva CUDA/Tensor Cores su GPU NVIDIA e trascrive tutto).
+
 ---
 
 ## ⚠️ Avvertenza Importante per Registratori USB Economici (Chip Jieli)
