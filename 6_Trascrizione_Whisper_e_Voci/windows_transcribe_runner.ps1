@@ -1,4 +1,4 @@
-# SegretarIA - Runner Trascrizione Windows
+﻿# SegretarIA - Runner Trascrizione Windows
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 $Host.UI.RawUI.WindowTitle = "SegretarIA - Trascrizione Locale Windows"
 
@@ -135,12 +135,35 @@ $scriptPy = Join-Path $ScriptDir "segretaria_transcribe_diarize.py"
 & $venvPython $scriptPy
 
 if ($LASTEXITCODE -ne 0) {
-    Write-Host "`n[-] Si e verificato un errore durante l elaborazione (Codice: $LASTEXITCODE)." -ForegroundColor Red
+    Write-Host "`n[-] Si e verificato un errore durante la trascrizione (Codice: $LASTEXITCODE)." -ForegroundColor Red
 } else {
     Write-Host "`n======================================================================" -ForegroundColor Green
     Write-Host "[OK] TRASCRIZIONE COMPLETATA CON SUCCESSO!" -ForegroundColor Green
     Write-Host "======================================================================" -ForegroundColor Green
-    Write-Host "I file e il testo si trovano nella cartella 'SegretarIA - Archivio'." -ForegroundColor Green
+
+    # Controllo presenza Ollama per estrazione automatica (Episodio 7)
+    $ollamaRunning = $false
+    try {
+        $res = Invoke-RestMethod -Uri "http://127.0.0.1:11434/api/tags" -Method Get -TimeoutSec 2 -ErrorAction SilentlyContinue
+        if ($res -and $res.models) {
+            $ollamaRunning = $true
+        }
+    } catch {}
+
+    if ($ollamaRunning) {
+        $extractScript = Join-Path $ScriptDir "segretaria_extract_ollama.py"
+        if (-not (Test-Path $extractScript)) {
+            $extractScript = Join-Path (Split-Path $ScriptDir -Parent) "7_Cervello_Ollama_Estrazione\segretaria_extract_ollama.py"
+        }
+        if (Test-Path $extractScript) {
+            Write-Host "`n======================================================================" -ForegroundColor Cyan
+            Write-Host "🧠  OLLAMA RILEVATO: AVVIO ESTRAZIONE INTELLIGENTE & MAPPE MENTALI..." -ForegroundColor Cyan
+            Write-Host "======================================================================" -ForegroundColor Cyan
+            & $venvPython $extractScript
+        }
+    }
+
+    Write-Host "`nI file finali (trascrizione.txt, analisi.json, appunto.md) sono in 'SegretarIA - Archivio'." -ForegroundColor Green
 }
 
 Write-Host "`nPremi Invio per chiudere questa finestra..."

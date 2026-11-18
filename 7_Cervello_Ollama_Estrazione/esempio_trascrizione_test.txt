@@ -1,0 +1,33 @@
+=== TRASCRIZIONE AUDIO SEGRETARIA ===
+File sorgente: R20261111_143000.mp3
+Data registrazione: 11 Novembre 2026 ore 14:30
+Durata totale: 08:45
+Percentuali di parlato: Luca: 48% - SPEAKER_01: 28% - SPEAKER_02: 24%
+
+[00:00 - 00:22] [Luca]: "Nota vocale veloce prima di partire: sto salendo in macchina con Matteo per andare al cantiere di Via Roma. Lì troveremo Ciccio e l'ingegner Giulia per fare il punto sui pannelli fotovoltaici e l'accumulo."
+
+[00:25 - 01:10] [Matteo]: "Ciao Luca! Ho visto che sono arrivati i moduli ieri. Dobbiamo capire se la struttura di fissaggio regge il carico neve previsto dalla perizia."
+
+[01:12 - 02:05] [Luca]: "Sì, ho guardato i calcoli stamattina. Ciao Ciccio, ciao Giulia! Allora, a che punto siamo con i cablaggi e i quadri?"
+
+[02:06 - 03:15] [Ciccio]: "Ciao ragazzi! Sul tetto abbiamo quasi finito la posa delle staffe, ma siamo rimasti a corto di materiale minuto: ci servono assolutamente due confezioni di fascette da elettricista resistenti UV e tre rotoli di nastro isolante autoagglomerante per sigillare i connettori MC4."
+
+[03:16 - 03:45] [Luca]: "Va bene, segno subito nella lista della spesa: passando dal magazzino al rientro prendo io due confezioni di fascette UV e i tre rotoli di nastro autoagglomerante."
+
+[03:48 - 04:30] [Luca]: "Matteo, ti prometto che entro domani sera alle 19:00 ti invio via mail la scheda tecnica del nuovo inverter ibrido e il computo metrico aggiornato con i prezzi scontati, così venerdì puoi girarlo direttamente alla committenza."
+
+[04:32 - 05:10] [Matteo]: "Perfetto Luca, grazie mille! Giulia, per il collaudo invece cosa serve?"
+
+[05:12 - 06:05] [Giulia]: "Prima del collaudo dobbiamo fare la verifica dell'isolamento di stringa e scaricare i certificati CE dei moduli dal portale del produttore. Ciccio, puoi fare tu questa verifica lunedì mattina?"
+
+[06:06 - 06:20] [Ciccio]: "Certamente, lunedì mattina alle 08:30 faccio la prova di isolamento e preparo i report."
+
+[06:22 - 07:05] [Giulia]: "Fissiamo allora la data ufficiale per il sopralluogo con il perito e la firma del verbale: martedì 17 novembre alle 15:30 qui al cantiere di Via Roma. Vi va bene?"
+
+[07:06 - 07:25] [Luca]: "Confermato, martedì 17 novembre alle 15:30 in cantiere con il perito, l'ho segnato."
+
+[07:26 - 07:50] [Ciccio]: "Ah Luca, per connettere l'inverter al monitoraggio remoto, la rete Wi-Fi provvisoria del cantiere è 'Cantiere_Solare' e la password è 'SoleEnergia2026!' con la S e la E maiuscole e punto esclamativo finale."
+
+[07:51 - 08:15] [Luca]: "Ottimo, memorizzata. Altra cosa per me: devo ricordarmi assolutamente che quando arrivo a casa devo controllare il contatore di scambio sul posto e verificare la potenza impegnata sul display."
+
+[08:16 - 08:45] [Luca]: "Ragazzi, stavo pensando a un'automazione per SegretarIA: dovremmo creare uno script Python che due ore prima di ogni evento a calendario controlli il meteo locale e invii una notifica interattiva su Telegram con il pulsante per avviare Google Maps direttamente verso l'indirizzo dell'evento!"

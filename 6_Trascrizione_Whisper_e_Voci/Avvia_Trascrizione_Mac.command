@@ -28,8 +28,26 @@ EXIT_CODE=$?
 
 if [ $EXIT_CODE -eq 0 ]; then
     echo ""
-    echo "[✓] Elaborazione completata con successo!"
-    osascript -e 'display notification "Trascrizione completata e archiviata!" with title "SegretarIA"' 2>/dev/null
+    echo "[✓] Trascrizione completata con successo!"
+
+    # Controllo presenza Ollama per estrazione automatica (Episodio 7)
+    if curl -s http://127.0.0.1:11434/api/tags >/dev/null 2>&1; then
+        EXTRACT_SCRIPT=""
+        if [ -f "$DIR/segretaria_extract_ollama.py" ]; then
+            EXTRACT_SCRIPT="$DIR/segretaria_extract_ollama.py"
+        elif [ -f "$DIR/../7_Cervello_Ollama_Estrazione/segretaria_extract_ollama.py" ]; then
+            EXTRACT_SCRIPT="$DIR/../7_Cervello_Ollama_Estrazione/segretaria_extract_ollama.py"
+        fi
+        if [ -n "$EXTRACT_SCRIPT" ]; then
+            echo ""
+            echo "======================================================================"
+            echo "🧠  OLLAMA RILEVATO: AVVIO ESTRAZIONE INTELLIGENTE & MAPPE MENTALI..."
+            echo "======================================================================"
+            "$VENV_DIR/bin/python3" "$EXTRACT_SCRIPT"
+        fi
+    fi
+
+    osascript -e 'display notification "Trascrizione ed estrazione completate!" with title "SegretarIA"' 2>/dev/null
 else
     echo ""
     echo "[-] Si è verificato un errore durante l'elaborazione."

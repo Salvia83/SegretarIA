@@ -1,0 +1,12 @@
+[Unit]
+Description=SegretarIA - Pipeline AI automatica ad ogni avvio e auto-spegnimento
+After=pve-guests.service network-online.target
+Wants=pve-guests.service network-online.target
+
+[Service]
+Type=simple
+ExecStartPre=/bin/sleep 15
+ExecStart=/usr/local/sbin/segretaria_notte_host.sh
+
+[Install]
+WantedBy=multi-user.target

@@ -36,6 +36,11 @@ Questo pacchetto contiene tutti gli script mostrati nella serie YouTube **Segret
 - **`Avvia_Trascrizione_Mac.command`**: Launcher 1-Click per macOS (crea l'ambiente virtuale isolato, trascrive e apre il risultato in TextEdit).
 - **`Avvia_Trascrizione_Windows.bat`** + **`windows_transcribe_runner.ps1`**: Launcher 1-Click per Windows 10/11 (scarica Python 3.11 in automatico se assente, attiva CUDA/Tensor Cores su GPU NVIDIA e trascrive tutto).
 
+### `7_Cervello_Ollama_Estrazione/` *(Episodio 7: Ollama Locale, Structured Output & Automazione Notturna)*
+- **`segretaria_extract_ollama.py`**: Interroga Ollama in locale (`qwen2.5:7b` / `qwen2.5:32b`) con JSON Schema rigido per generare `analisi.json` e `appunto.md` (Context Priming, 6 Template, Mermaid.js, Promesse, Task, Spesa, Trigger Geografici).
+- **`segretaria_pipeline_notturna.py`** + **`segretaria_notte_proxmox_host.sh`** + **`segretaria-notte.service`**: Pipeline notturna unificata per Proxmox (attesa Syncthing, Whisper, Ollama, auto-spegnimento).
+- **`esempio_trascrizione_test.txt`**: Trascrizione demo pronta per i primi test offline.
+
 ---
 
 ## ⚠️ Avvertenza Importante per Registratori USB Economici (Chip Jieli)
